@@ -7,8 +7,8 @@ If you are looking to contribute some content, feel free to suggest (or just for
 * Geolocation
 * Currency
 * Anything that has a [microformat](http://microformats.org/wiki/Main_Page)
-	* [hCalendar](http://microformats.org/wiki/hcalendar)
-	* [hCard](http://microformats.org/wiki/hcard)
-	* [hRecipe](http://microformats.org/wiki/hrecipe)
-	* [hResume](http://microformats.org/wiki/hresume)
-	* [hReview](http://microformats.org/wiki/hreview)
+  * [hCalendar](http://microformats.org/wiki/hcalendar)
+  * [hCard](http://microformats.org/wiki/hcard)
+  * [hRecipe](http://microformats.org/wiki/hrecipe)
+  * [hResume](http://microformats.org/wiki/hresume)
+  * [hReview](http://microformats.org/wiki/hreview)
