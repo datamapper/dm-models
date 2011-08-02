@@ -5,9 +5,9 @@ class Committer
   property :name, String, :length => 255
 
   has n, :contributions
-  has n, :projects,         :through => :contribution
+  has n, :projects,         :through => :contributions
   has n, :cocontributions,  :through => :projects# , Author.papers.authors.id.not => Author.id
-  has n, :cocontributor,    :through => :cocontributions
+  has n, :cocontributors,   :through => :cocontributions
 
   # @return [Integer]
   #   degrees of separation from Paul Erdös
