@@ -1,29 +1,29 @@
-__END__
-
-Author.create(
-  :name => "Paul Erdös"
+Committer.create(
+  :name => "Dan Kubb"
 )
 
-Author.first.erdos_number # => nil, or some positive integer
+Committer.first.erdos_number # => nil, or some positive integer
+
+__END__
 
 SELECT id
-FROM authors
-JOIN authorships ON author.id = authorships.author_id
-JOIN papers ON authorships.paper_id = paper.id
-JOIN authorships AS coauthorships ON coauthorships.paper_id = paper.id
-JOIN authors AS coauthors1 ON coauthorships.author_id = coauthors1.id
-JOIN authorships AS coauthorships2 ON coauthorships2.author_id = coauthors1.id
-JOIN papers AS coauthored_papers ON coauthorships2.paper_id = coauthored_papers.id
-JOIN authorships AS coauthorships3 ON coauthorships3.paper_id = coauthored_papers.id
-JOIN authors AS coauthors2 ON coauthorships3.author_id = coauthors2.id
+FROM committers
+JOIN contributions ON committer.id = contributions.committer_id
+JOIN projects ON contributions.project_id = project.id
+JOIN contributions AS cocontributions ON cocontributions.project_id = project.id
+JOIN committers AS cocommitters1 ON cocontributions.committer_id = cocommitters1.id
+JOIN contributions AS cocontributions2 ON cocontributions2.committer_id = cocommitters1.id
+JOIN projects AS cocontributed_projects ON cocontributions2.project_id = cocontributed_projects.id
+JOIN contributions AS cocontributions3 ON cocontributions3.project_id = cocontributed_projects.id
+JOIN committers AS cocommitters2 ON cocontributions3.committer_id = cocommitters2.id
 
-// relations: [authors, authorships, papers, coauthorships, coauthors]
+// relations: [committers, contributions, projects, cocontributions, cocontributors]
 
-Author relation header: [:id, :name]
-Authorship relation header: [:author_id, :paper_id]
-Paper relation header: [:id, :title, :abstract]
+Committer relation header: [:id, :name]
+Contribution relation header: [:committer_id, :project_id]
+Project relation header: [:id, :name, :description]
 
-Author.authorships
-authors.id = authorships_author_id # example naming by relationship(s) from source model
-authors.id IN authorships_papers_coauthorships_coauthors_id # NO, too verbose
-coauthorship1 => coauthorship2 # yes, not too verbose, unique, and still descriptive
+Committer.contributions
+committers.id = contributions_committer_id # example naming by relationship(s) from source model
+committers.id IN contributions_projects_cocontributions_cocommitters_id # NO, too verbose
+contributions1 => contributions2 # yes, not too verbose, unique, and still descriptive

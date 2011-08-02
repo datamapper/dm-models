@@ -7,7 +7,7 @@ module Committers
 
     has n, :contributions
     has n, :projects,         :through => :contributions
-    has n, :cocontributions,  :through => :projects# , Author.papers.authors.id.not => Author.id
+    has n, :cocontributions,  :through => :projects# , Committer.projects.committers.id.not => Committer.id
     has n, :cocontributors,   :through => :cocontributions
 
     # @return [Integer]
